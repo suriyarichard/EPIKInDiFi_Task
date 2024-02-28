@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Devices Information</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .device {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        .device:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="device" onclick="openDeviceDetails('Mobile Phone')">
+        <h3>Mobile Phone</h3>
+    </div>
+
+    <div class="device" onclick="openDeviceDetails('Laptop')">
+        <h3>Laptop</h3>
+    </div>
+
+    <div class="device" onclick="openDeviceDetails('Desktop')">
+        <h3>Desktop</h3>
+    </div>
+
+    <!-- Add more devices as needed -->
+</div>
+
+<script>
+    function openDeviceDetails(deviceName) {
+        const details = getDeviceDetails(deviceName);
+        const newTab = window.open();
+        
+        newTab.document.write(`<html><head><title>${deviceName} Details</title></head><body>${details}</body></html>`);
+        newTab.document.close();
+    }
+
+    function getDeviceDetails(deviceName) {
+        // Here, you can customize the details for each device
+        switch (deviceName) {
+            case 'Mobile Phone':
+                return 'Details about Mobile Phone: Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+            case 'Laptop':
+                return 'Details about Laptop: Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+            case 'Desktop':
+                return 'Details about Desktop: Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+            default:
+                return 'No details available.';
+        }
+    }
+</script>
+
+</body>
+</html>
